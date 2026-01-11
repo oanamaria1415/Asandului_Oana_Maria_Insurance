@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="../ChargesML_WebApi1/ChargesML_WebApi1.csproj" />
+  <Project Path="../ChargesPredictionWebAPI/ChargesPredictionWebAPI.csproj" />
   <Project Path="Asandului_Oana_Maria_Insurance.csproj" />
 </Solution>
