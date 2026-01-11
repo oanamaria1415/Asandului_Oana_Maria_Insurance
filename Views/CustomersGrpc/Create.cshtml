@@ -1,0 +1,28 @@
+﻿@model GrpcCustomersService.Customer
+
+<h1>Create (gRPC)</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>CustomerId</label>
+        <input asp-for="CustomerId" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Adress</label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Birthdate (yyyy-MM-dd)</label>
+        <input asp-for="Birthdate" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Create</button>
+</form>
+
+<div class="mt-2">
+    <a asp-action="Index">Back to List</a>
+</div>
