@@ -1,0 +1,96 @@
+﻿@model Asandului_Oana_Maria_Insurance.Models.Policy
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Policy</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.PolicyNumber)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.PolicyNumber)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.StartDate)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.StartDate)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.EndDate)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.EndDate)</dd>
+
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Premium)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Premium)</dd>
+
+        <dt class="col-sm-2">Customer</dt>
+        <dd class="col-sm-10">@(Model.Customer?.Name ?? "")</dd>
+
+        <dt class="col-sm-2">Provider</dt>
+        <dd class="col-sm-10">@(Model.Provider?.Name ?? "")</dd>
+    </dl>
+</div>
+
+<hr />
+
+<h4>Claims</h4>
+@if (Model.Claims != null && Model.Claims.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ClaimDate</th>
+                <th>Description</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model.Claims)
+            {
+                <tr>
+                    <td>@c.ClaimDate.ToString("yyyy-MM-dd")</td>
+                    <td>@c.Description</td>
+                    <td>@c.Amount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No claims for this policy.</p>
+}
+
+<hr />
+
+<h4>Payments</h4>
+@if (Model.Payments != null && Model.Payments.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>PaymentDate</th>
+                <th>Amount</th>
+                <th>Method</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model.Payments)
+            {
+                <tr>
+                    <td>@p.PaymentDate.ToString("yyyy-MM-dd")</td>
+                    <td>@p.Amount</td>
+                    <td>@p.Method</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No payments for this policy.</p>
+}
+
+<div class="mt-2">
+    <a asp-action="Edit" asp-route-id="@Model?.PolicyID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
