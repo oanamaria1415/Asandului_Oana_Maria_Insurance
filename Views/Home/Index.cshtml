@@ -1,8 +1,43 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center mt-4">
+    <h1 class="display-4">Asandului_Oana_Maria_Insurance</h1>
+    <p class="lead">Asandului Oana Maria</p>
+</div>
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-10 col-lg-8">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h4 class="card-title">Proiect overview </h4>
+
+                <div class="mt-3">
+                    <h5>1) ASP.NET Core MVC + Database (5 tabele)</h5>
+                    <p class="mb-2">
+                        Aplicatie web ASP.NET Core MVC pe tema <b>Insurance</b>, cu baza de date relationala
+                        formata din 5 tabele: <b>Customers, Providers, Policies, Claims, Payments</b>.
+                        Implementate operatii CRUD, afisare date relationate (Policy + Customer/Provider + Claims/Payments),
+                        filtrare si sortare.
+                    </p>
+
+                    <h5 class="mt-3">2) ML.NET model consumat prin REST</h5>
+                    <p class="mb-2">
+                        Model de Machine Learning (regression) antrenat pe dataset-ul de insurance
+                        pentru a prezice <b>charges</b> pe baza factorilor (age, sex, bmi, children, smoker, region).
+                        Modelul este expus printr-un <b>Web API REST</b>, iar aplicatia MVC il consuma si afiseaza
+                        rezultatul intr-o pagina dedicata <b>ML Prediction</b>.
+                    </p>
+
+                    <h5 class="mt-3">3) Serviciu gRPC consumat de MVC</h5>
+                    <p class="mb-0">
+                        Serviciu <b>gRPC</b> separat care implementeaza operatii CRUD pentru entitatea <b>Customer</b>.
+                        Aplicatia MVC consuma serviciul prin client gRPC si afiseaza lista de customers in pagina
+                        <b>Customers gRPC</b>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

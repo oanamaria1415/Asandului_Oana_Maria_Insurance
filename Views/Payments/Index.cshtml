@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Payments</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -21,19 +21,19 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.PaymentDate)</td>
-                <td>@Html.DisplayFor(modelItem => item.Amount)</td>
-                <td>@Html.DisplayFor(modelItem => item.Method)</td>
-                <td>@(item.Policy?.PolicyNumber ?? "")</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.PaymentID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.PaymentID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.PaymentID">Delete</a>
-                </td>
-            </tr>
-        }
+@foreach (var item in Model)
+{
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.PaymentDate)</td>
+            <td>@Html.DisplayFor(modelItem => item.Amount)</td>
+            <td>@Html.DisplayFor(modelItem => item.Method)</td>
+            <td>@(item.Policy?.PolicyNumber ?? "")</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PaymentID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PaymentID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PaymentID">Delete</a>
+            </td>
+        </tr>
+}
     </tbody>
 </table>
