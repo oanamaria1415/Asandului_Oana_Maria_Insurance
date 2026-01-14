@@ -24,21 +24,21 @@ namespace Asandului_Oana_Maria_Insurance.Controllers
     int? providerId,
     string sortOrder)
         {
-            // sort keys
+            
             ViewData["CurrentSort"] = sortOrder;
             ViewData["PremiumSort"] = string.IsNullOrEmpty(sortOrder) ? "premium_desc" : "";
             ViewData["StartSort"] = sortOrder == "start_asc" ? "start_desc" : "start_asc";
 
-            // keep filters
+           
             ViewData["SearchCustomer"] = searchCustomer;
             ViewData["ProviderId"] = providerId;
 
-            // 🔴 AICI este FIXUL IMPORTANT
+          
             ViewData["Providers"] = new SelectList(
                 _context.Provider,
                 "ProviderID",
                 "Name",
-                providerId   // <-- ASTA păstrează providerul selectat
+                providerId  
             );
 
             var query = _context.Policy
@@ -92,7 +92,7 @@ namespace Asandului_Oana_Maria_Insurance.Controllers
         // GET: Policies/Create
         public IActionResult Create()
         {
-            // show Names in dropdowns (not IDs)
+           
             ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Name");
             ViewData["ProviderID"] = new SelectList(_context.Provider, "ProviderID", "Name");
             return View();
@@ -110,7 +110,7 @@ namespace Asandului_Oana_Maria_Insurance.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            // repopulate dropdowns if validation fails
+         
             ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "Name", policy.CustomerID);
             ViewData["ProviderID"] = new SelectList(_context.Provider, "ProviderID", "Name", policy.ProviderID);
             return View(policy);
