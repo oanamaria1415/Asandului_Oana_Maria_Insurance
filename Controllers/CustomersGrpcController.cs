@@ -50,7 +50,7 @@ namespace Asandului_Oana_Maria_Insurance.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // EDIT (cerința labului)
+        // EDIT 
         public IActionResult Edit(int? id)
         {
             if (id == null) return NotFound();
